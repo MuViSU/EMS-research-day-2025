@@ -1,0 +1,227 @@
+---
+title: "Centre for Multi-Dimensional Data Visualisation (MuViSU)"
+subtitle: ""
+author: "<br>**EMS Research day 2025: 6 November 2025**<br><br><br>muvisu@sun.ac.za"
+format: 
+  revealjs:
+    #incremental: true
+    logo: images/SU-EMS-horizontal.png
+    slide-number: c/t
+    #multiplex: true
+    code-copy: true
+    code-link: true
+    theme: [formatting/SU.scss]
+    show-slide-number: all
+    code-overflow: scroll
+    highlight-style: a11y
+    controls: true
+    height: 1080
+    width: 1920
+    css: [formatting/custom.css]
+    embed-resources: true
+    self-contained: true
+resources: 
+  - animations/**
+title-slide-attributes: 
+  data-background-opacity: "0.7"
+  data-background-size: 15%
+  data-background-position: 95% 90%
+execute:
+  echo: true
+  eval: true
+include-in-header:
+  - text: |
+      <style>
+        body:has(.present.hide-logo) {
+          --logo-display: none;
+        }
+        .slide-logo {
+          display: var(--logo-display, block) !important;
+        }
+      </style>
+---
+
+```{r setup}
+#| include: false
+
+library(knitr)
+options(htmltools.dir.version = FALSE, tibble.width = 45)
+opts_chunk$set(
+  echo = TRUE, 
+  warning = FALSE, 
+  message = FALSE, 
+  error=FALSE, 
+  comment = "#",
+  fig.align = 'center', 
+  fig.retina = 5,
+  out.width = "80%",
+  fig.show = 'hold',
+  cache = FALSE
+)
+
+# libraries
+library(biplotEZ) ; library(gganimate) ; library(moveEZ)
+data("Africa_climate")
+```
+
+## Who we are
+
+-   **MuViSU** is a research centre located within the **Department of Statistics and Actuarial Science at Stellenbosch University**
+-   Established in 2021.
+-   Members
+    -   One institutional member: School for Data Science and Computational Thinking, SU
+    -   Individual members: 25
+
+```{r}
+#| echo: false
+library(DT)
+col1 <- c("Stellenbosch University: 7", "North West University: 2", "University of the Witwatersrand: 1", "University of the Free State: 1", "Sasol: 1")
+col2 <- c("Erasmus University: 3", "Universiteit Leiden: 2", "Democritus University: 1", "Universite De Moncton: 1", "TU Wien: 1")
+col3 <- c("Universitat Pompeu Fabra: 1", "Univerisity of Compania “Luigi Vanvielli” 1", "University of Naples Federico II: 1","University of Wollongong: 1", "Independent risk analyst: 1")
+members <- data.frame(col1, col2,col3, stringsAsFactors = FALSE)
+
+datatable(members, rownames = FALSE, colnames = NULL, filter = "none", class = "cell-border", autoHideNavigation = NULL, options = list(dom = 't', searching = FALSE, LengthChange = FALSE, ordering = FALSE)) |> 
+   formatStyle(
+    columns = names(members),
+    Color = "#61223b",
+    backgroundColor = "#f9f9f9")
+```
+
+## Management Committee
+
+::::::: columns
+::: {.column width="25%"}
+![Director: Sugnet Lubbe (SU)](images_priv/SL.jpg){fig-align="center"}
+:::
+
+::: {.column width="25%"}
+![Deputy-Director: Johané Nienkemper-Swanepoel (SU)](images_priv/JNS.jpg){fig-align="center"}
+:::
+
+::: {.column width="25%"}
+![Secretary: Raeesa Ganey (Wits)](images_priv/RG.jpg){fig-align="center"}
+:::
+
+::: {.column width="25%"}
+![Financial Officer: Roelof Coetzer (NWU)](images_priv/RC.jpg){fig-align="center"}
+:::
+:::::::
+
+## Software
+
+::::::::: panel-tabset
+### <img src="images/biplotEZ.png" height="120px" style="vertical-align:middle;"/>
+
+::: info-box
+`biplotEZ` - pronounced **biplot easy**
+:::
+
+EZ-to-Use Biplots.
+
+Lubbe S, le Roux N, Nienkemper-Swanepoel J, Ganey R, Buys R, Adams Z, Manefeldt P (2025). *biplotEZ: EZ-to-Use Biplots*. R package version 2.3, <https://github.com/MuViSU/biplotEZ>.
+
+### <img src="images/moveEZ.png" height="120px" style="vertical-align:middle;"/>
+
+::: info-box
+`moveEZ` - pronounced **move easy**
+:::
+
+Animated Biplots.
+
+Ganey R & Nienkemper-Swanepoel J (2025). *moveEZ: Animated Biplots*. R package version 1.1.1, <https://CRAN.R-project.org/package=moveEZ>.
+
+### <img src="images/wideRhino.png" height="120px" style="vertical-align:middle;"/>
+
+::: info-box
+`wideRhino` - pronounced **wide Rhino**
+:::
+
+High-Dimensional Methods via Generalised Singular Decomposition.
+
+Ganey R (2025). *wideRhino: High-Dimensional Methods via Generalised Singular Decomposition*. R package version 1.0.2, <https://CRAN.R-project.org/package=wideRhino>.
+
+
+### <img src="images/Rlogo.png" height="120px" style="vertical-align:middle;"/>
+
+::: info-box
+`bipl5` - pronounced **bipl *vyf***
+:::
+
+Construct Reactive Calibrated Axes Biplots.
+
+Buys R & van der Merwe C (2023). *bipl5: Construct Reactive Calibrated Axes Biplots*. R package version 1.0.2, <https://CRAN.R-project.org/package=bipl5>.
+:::::::::
+
+
+### <img src="images/GPAbin.png" height="120px" style="vertical-align:middle;"/>
+
+::: info-box
+`GPAbin` - pronounced **G** - **P** - **A** - **bin**
+:::
+
+Unifying Multiple Biplot visualisations into a Single Display.
+
+Nienkemper-Swanepoel J (2025). *GPAbin: Unifying Multiple Biplot Visualisations into a Single Display*. R package version 1.1.1, <https://CRAN.R-project.org/package=GPAbin>.
+
+### <img src="images/ClusBoot.jpg" height="120px" style="vertical-align:middle;"/>
+
+::: info-box
+`ClusBoot` - pronounced **clusboot**
+:::
+
+Bootstrap a Clustering Solution to Establish the Stability of the Clusters.
+
+Lubbe S (2024). *ClusBoot: Bootstrap a Clustering Solution to Establish the Stability of the Clusters*. R package version 1.2.2, <https://CRAN.R-project.org/package=ClusBoot>.
+
+
+## What is a biplot?
+
+-   Multi-dimensional scatter plot
+
+-   Represent multivariate data in lower dimension
+-   Different biplots for different data
+    -   Principal Component Analysis (PCA) biplot: continuous variables
+    -   Categorical PCA (CatPCA) biplot: numeric and categorical variables
+    -   Correspondence Analysis (CA) maps: two categorical variables (frequency tables)
+    -   Multiple Correspondence Analysis (MCA) biplots: multiple categorical variables
+    -   Multi-Dimensional Scaling (MDS) biplots: more general distance based methods
+    -   Grouped data:
+        -   Canonical Variate Analysis (CVA) biplots
+        -   Analysis of Distance (AoD) biplots
+
+
+## Examples
+
+::::::::: panel-tabset
+### <img src="images/biplotEZ.png" height="120px" style="vertical-align:middle;"/>
+
+```{r}
+#| eval: false
+library(biplotEZ)
+
+bp <- biplot(Africa_climate, scaled = TRUE) |> 
+  PCA(group.aes = Africa_climate$Region) |> 
+  samples(opacity = 0.8, 
+          col = scales::hue_pal()(10)) |> 
+  axes(col="black") |> 
+  plot()
+```
+
+### <img src="animations/moveEZ.png" height="120px" style="vertical-align:middle;"/>
+
+```{r echo=TRUE, eval=FALSE}
+#| fig-width: 9
+#| fig-height: 6
+bp |> moveplot(time.var = "Year", group.var = "Region", hulls = TRUE, move = TRUE)
+```
+
+![](images/bp1.gif){fig-align="center" width="60%"}
+
+### <img src="images/Rlogo.png" height="120px" style="vertical-align:middle;"/>
+
+```{r}
+PCAbiplot(as.matrix(Africa_climate[,4:9]), group=as.matrix(Africa_climate[,3]), scale=TRUE)
+```
+
+:::::::::
+
