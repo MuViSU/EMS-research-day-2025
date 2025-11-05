@@ -2,7 +2,7 @@ title-slide .author {
   font-size: 80px!important;
 }
 #title-slide .author:after {
-  content: url('../images/SU_horizontal_RGB.png') ;
+  content: url('../images/SU-EMS-horizontal.png') ;
   display: block;
 
 }
