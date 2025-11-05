@@ -215,12 +215,13 @@ Iturbide et al. 2020. An update of IPCC climate reference regions for subcontine
 
 ## `biplotEZ` <img src="images/biplotEZ.png" height="120px" style="vertical-align:middle;"/>
 
-```{r}
-#| echo: false
-#| fig-width: 9
-#| fig-height: 6
-library(biplotEZ)
+::::: columns
+::: {.column width="45%"}
 
+```{r}
+#| label: plot-left
+#| eval: false
+library(biplotEZ)
 bp <- biplot(Africa_climate, scaled = TRUE) |> 
   PCA(group.aes = Africa_climate$Region) |> 
   samples(opacity = 0.8, 
@@ -228,6 +229,18 @@ bp <- biplot(Africa_climate, scaled = TRUE) |>
   axes(col="black") |> 
   plot()
 ```
+:::
+
+::: {.column width="55%"}
+```{r}
+#| fig-width: 6
+#| fig-height: 6
+#| label: plot-left
+#| echo: false
+```
+:::
+:::::
+
 
 ## `moveEZ` <img src="images/moveEZ.png" height="120px" style="vertical-align:middle;"/>
 
@@ -254,7 +267,7 @@ bp |> moveplot(time.var = "Year", group.var = "Region", hulls = TRUE, move = TRU
 -   Grouped data:
     -   Canonical Variate Analysis (CVA) biplots
         -   More variables than samples (`wideRhino`)
--   Analysis of Distance (AoD) biplots
+    -   Analysis of Distance (AoD) biplots
 -   Features:
     -   1D, 2D, 3D biplots
     -   Fit measures to understand success of dimension reduction and lower dimensional representation
