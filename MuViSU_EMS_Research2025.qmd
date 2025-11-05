@@ -301,7 +301,7 @@ MuViSU members and external collaborators:
 
 -   Biplots for thermal and emissions performance. **Collaborator**: Prof Hein Neomagus (NWU)
 
--   Bridging biplots and data `tours`. **Collaborator**: Prof Dianne Cook (Monash University)
+-   Bridging biplots and data tours (`tourr`). **Collaborator**: Prof Dianne Cook (Monash University)
 
 # Thank you | Enkosi | Dankie
 
