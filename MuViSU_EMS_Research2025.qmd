@@ -76,7 +76,7 @@ data("Africa_climate")
 ## Members
 
 -   Institutional member: School for Data Science and Computational Thinking (SU)
--   Affiliations of 25 individual members:
+-   Affiliations of 27 individual members:
 
 |  |  |  |
 |-------------------------|-------------------|----------------------------|
@@ -84,7 +84,8 @@ data("Africa_climate")
 | North West University: 2 | Universiteit Leiden: 2 | Univerisity Compania “Luigi Vanvielli”: 1 |
 | University of the Witwatersrand: 1 | Democritus University: 1 | University of Naples Federico II: 1 |
 | University of the Free State: 1 | Universite De Moncton: 1 | University of Wollongong: 1 |
-| Sasol: 1 | TU Wien: 1 | Independent risk analyst: 1 |
+| Sasol: 1 | TU Wien: 1 | University of Porto: 1 |
+| | Heineken: 1 | Independent risk analyst: 1 |
 
 -   1 Postdoctoral Research Fellow
 -   Students:
@@ -258,7 +259,7 @@ bp |> moveplot(time.var = "Year", group.var = "Region", hulls = TRUE, move = TRU
 {{< include animations/bipl5_climate.html >}}
 ```
 
-## Biplots for different data types
+## Biplots for different data types {.hide-logo}
 
 -   Principal Component Analysis (PCA) biplot: continuous variables
 -   Categorical PCA (CatPCA) biplot: numeric and categorical variables
